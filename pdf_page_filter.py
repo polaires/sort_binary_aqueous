@@ -106,6 +106,116 @@ def detect_page_numbers(reader, verbose=True):
     return page_mapping
 
 
+def interpolate_missing_pages(page_mapping, total_pages, verbose=True):
+    """
+    Intelligently fill in missing page numbers based on detected sequences.
+
+    Args:
+        page_mapping: Dictionary of physical index -> printed page number
+        total_pages: Total number of physical pages
+        verbose: Print interpolation information
+
+    Returns:
+        Updated page_mapping with interpolated values
+    """
+    if not page_mapping:
+        return page_mapping
+
+    interpolated = page_mapping.copy()
+
+    if verbose:
+        print("Interpolating missing page numbers...")
+        print("-" * 60)
+
+    # Find sequences of consecutive detected pages
+    detected_indices = sorted(page_mapping.keys())
+
+    # Look for patterns and fill gaps
+    for i in range(len(detected_indices) - 1):
+        phys_start = detected_indices[i]
+        phys_end = detected_indices[i + 1]
+
+        page_start = page_mapping[phys_start]
+        page_end = page_mapping[phys_end]
+
+        # Calculate the gap
+        phys_gap = phys_end - phys_start
+        page_gap = page_end - page_start
+
+        # If the gaps match or are close, interpolate
+        # Allow for some flexibility (e.g., one skipped page number)
+        if phys_gap > 1 and phys_gap <= 10 and page_gap >= phys_gap - 2 and page_gap <= phys_gap + 2:
+            # Linear interpolation
+            if page_gap == phys_gap:
+                # Perfect match - sequential numbering
+                for j in range(1, phys_gap):
+                    phys_idx = phys_start + j
+                    inferred_page = page_start + j
+                    if phys_idx not in interpolated:
+                        interpolated[phys_idx] = inferred_page
+                        if verbose:
+                            print(f"Physical page {phys_idx + 1:3d} -> Inferred page number: {inferred_page}")
+            elif page_gap == phys_gap - 1:
+                # One physical page doesn't have a number (likely blank/separator)
+                # Fill in the sequential ones
+                current_page = page_start
+                for j in range(1, phys_gap):
+                    phys_idx = phys_start + j
+                    if phys_idx not in interpolated:
+                        # Try to infer if this should be numbered or blank
+                        expected_page = current_page + 1
+                        if expected_page < page_end:
+                            interpolated[phys_idx] = expected_page
+                            current_page = expected_page
+                            if verbose:
+                                print(f"Physical page {phys_idx + 1:3d} -> Inferred page number: {expected_page}")
+                        else:
+                            if verbose:
+                                print(f"Physical page {phys_idx + 1:3d} -> Likely unnumbered page (blank/separator)")
+
+    # Handle pages before the first detected page
+    if detected_indices:
+        first_detected = detected_indices[0]
+        first_page_num = page_mapping[first_detected]
+
+        # If first detected page has a reasonable page number, backfill
+        if first_page_num > 1 and first_page_num - 1 <= first_detected:
+            for phys_idx in range(first_detected - 1, -1, -1):
+                inferred_page = first_page_num - (first_detected - phys_idx)
+                if inferred_page >= 1 and phys_idx not in interpolated:
+                    interpolated[phys_idx] = inferred_page
+                    if verbose:
+                        print(f"Physical page {phys_idx + 1:3d} -> Inferred page number: {inferred_page} (backfilled)")
+                else:
+                    break
+
+    # Handle pages after the last detected page
+    if detected_indices:
+        last_detected = detected_indices[-1]
+        last_page_num = page_mapping[last_detected]
+
+        # Look for a consistent increment pattern near the end
+        if len(detected_indices) >= 2:
+            # Check if we have a consistent pattern
+            prev_detected = detected_indices[-2]
+            if last_detected - prev_detected == 1:
+                # Sequential physical pages, extend forward
+                for phys_idx in range(last_detected + 1, total_pages):
+                    inferred_page = last_page_num + (phys_idx - last_detected)
+                    if phys_idx not in interpolated:
+                        interpolated[phys_idx] = inferred_page
+                        if verbose:
+                            print(f"Physical page {phys_idx + 1:3d} -> Inferred page number: {inferred_page} (forward fill)")
+
+    if verbose:
+        print("-" * 60)
+        added_count = len(interpolated) - len(page_mapping)
+        print(f"Interpolated {added_count} additional page numbers")
+        print(f"Total pages mapped: {len(interpolated)}/{total_pages}\n")
+
+    return interpolated
+
+
 def parse_page_ranges(range_string):
     """
     Parse page range string like "1-3, 5, 7-10" into a list of page numbers.
@@ -184,6 +294,9 @@ def filter_pdf_pages(input_path, output_path, page_ranges, use_printed_numbers=T
                 print("\nWarning: No page numbers detected on any pages!")
                 print("Falling back to physical page numbers...")
                 use_printed_numbers = False
+            else:
+                # Interpolate missing page numbers
+                page_mapping = interpolate_missing_pages(page_mapping, total_pages, verbose=True)
 
         # Create output PDF
         writer = PdfWriter()
