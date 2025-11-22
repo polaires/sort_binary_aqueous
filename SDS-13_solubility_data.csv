@@ -1,0 +1,100 @@
+Salt,CAS_Number,Temperature_C,Solubility_mass_percent,Solubility_mol_per_kg,Solid_Phase,Reference,Journal,Year,Additional_Conditions
+Sc(NO3)3,[13465-60-6],0,56.37,5.595,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Sc(NO3)3,[13465-60-6],15,61.30,6.857,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Sc(NO3)3,[13465-60-6],25,62.37,7.176,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Sc(NO3)3,[13465-60-6],30,64.28,7.791,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Sc(NO3)3,[13465-60-6],40,66.99,8.787,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Sc(NO3)3,[13465-60-6],50,67.63,9.045,Sc(NO3)3·4H2O,"Pushkina, G. Ya.; Komissarova, L.N.",Zh. Neorg. Khim.,1963,
+Y(NO3)3,[10361-93-0],0,93.55,3.403,Y(NO3)3·6H2O,"Crew, M.C.; Steinert, H.E.; Hopkins, B.S.",J. Phys. Chem.,1925,
+Y(NO3)3,[10361-93-0],22.5,135.2,4.917,Y(NO3)3·6H2O,"Crew, M.C.; Steinert, H.E.; Hopkins, B.S.",J. Phys. Chem.,1925,
+Y(NO3)3,[10361-93-0],35,156.1,5.677,Y(NO3)3·6H2O,"Crew, M.C.; Steinert, H.E.; Hopkins, B.S.",J. Phys. Chem.,1925,
+Y(NO3)3,[10361-93-0],60.2,196.2,7.138,Y(NO3)3·6H2O,"Crew, M.C.; Steinert, H.E.; Hopkins, B.S.",J. Phys. Chem.,1925,
+Y(NO3)3,[10361-93-0],66.5,213.1,7.752,Y(NO3)3·6H2O,"Crew, M.C.; Steinert, H.E.; Hopkins, B.S.",J. Phys. Chem.,1925,
+Y(NO3)3,[10361-93-0],0,55.51,4.538,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],10,57.12,4.845,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],20,58.45,5.117,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],25,59.92,5.438,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],30,61.23,5.745,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],35,62.49,6.060,Y(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Y(NO3)3,[10361-93-0],40,63.76,6.400,Y(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,Transition at 38.5°C
+Y(NO3)3,[10361-93-0],50,64.51,6.612,Y(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+La(NO3)3,[10099-59-9],0,50.03,3.081,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+La(NO3)3,[10099-59-9],18.4,54.16,3.636,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+La(NO3)3,[10099-59-9],21.2,55.03,3.766,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+La(NO3)3,[10099-59-9],25.4,55.80,3.885,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+La(NO3)3,[10099-59-9],35.4,59.12,4.451,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+La(NO3)3,[10099-59-9],42.4,63.84,5.434,α-La(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,Transition ~43°C
+La(NO3)3,[10099-59-9],0,54.99,3.760,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],5,55.88,3.898,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],10,57.09,4.095,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],20,58.97,4.423,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],25,59.98,4.613,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],35,62.34,5.095,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],50,66.29,6.052,La(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+La(NO3)3,[10099-59-9],25,,,La(NO3)3·6H2O,"Spedding, F.R.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.610 mol/kg
+Ce(NO3)3,[10108-73-3],25,63.71,5.383,Ce(NO3)3·6H2O,"Quill, L.L.; Robey, R.F.",J. Am. Chem. Soc.,1937,density=1.88 kg/m³
+Ce(NO3)3,[10108-73-3],50,73.88,8.673,Ce(NO3)3·6H2O,"Quill, L.L.; Robey, R.F.",J. Am. Chem. Soc.,1937,density=2.04 kg/m³
+Ce(NO3)3,[10108-73-3],0,58.02,4.238,Ce(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Ce(NO3)3,[10108-73-3],10,59.83,4.567,Ce(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Ce(NO3)3,[10108-73-3],20,62.02,5.007,Ce(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Ce(NO3)3,[10108-73-3],35,65.62,5.852,Ce(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Ce(NO3)3,[10108-73-3],50,70.51,7.331,Ce(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],15.8,59.32,4.460,Pr(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Pr(NO3)3,[10361-80-5],22.0,60.18,4.623,Pr(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Pr(NO3)3,[10361-80-5],30.4,61.94,4.978,Pr(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Pr(NO3)3,[10361-80-5],43.0,65.00,5.681,Pr(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Pr(NO3)3,[10361-80-5],56.0,75.15,9.250,Pr(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,Melting point
+Pr(NO3)3,[10361-80-5],0,57.46,4.132,Pr(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],10,59.29,4.455,Pr(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],20,61.24,4.833,Pr(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],35,64.86,5.646,Pr(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],50,69.40,6.937,Pr(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Pr(NO3)3,[10361-80-5],25,,,Pr(NO3)3·6H2O,"Rard, J.A.; Spedding, F.H.",J. Phys. Chem.,1975,Preferred value: 5.0166 mol/kg
+Nd(NO3)3,[10045-95-1],0,55.97,3.711,α-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Nd(NO3)3,[10045-95-1],13.2,57.37,4.075,α-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Nd(NO3)3,[10045-95-1],18.2,58.03,4.187,α-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Nd(NO3)3,[10045-95-1],23.0,59.59,4.465,α-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,
+Nd(NO3)3,[10045-95-1],27.2,58.17,4.211,β-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,Transition ~22°C
+Nd(NO3)3,[10045-95-1],67.5,75.34,9.251,β-Nd(NO3)3·6H2O,Friend J.N.,J. Chem. Soc.,1935,Melting point
+Nd(NO3)3,[10045-95-1],0,55.71,3.809,Nd(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Nd(NO3)3,[10045-95-1],10,57.62,4.117,Nd(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Nd(NO3)3,[10045-95-1],20,59.29,4.410,Nd(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Nd(NO3)3,[10045-95-1],35,62.62,5.073,Nd(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Nd(NO3)3,[10045-95-1],50,66.29,5.954,Nd(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Nd(NO3)3,[10045-95-1],25,,,Nd(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.6184 mol/kg
+Sm(NO3)3,[10361-83-8],0,54.74,3.596,Sm(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Sm(NO3)3,[10361-83-8],10,56.50,3.861,Sm(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Sm(NO3)3,[10361-83-8],20,58.04,4.112,Sm(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Sm(NO3)3,[10361-83-8],35,61.20,4.689,Sm(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Sm(NO3)3,[10361-83-8],50,64.68,5.444,Sm(NO3)3·6H2O,"Brunisholz, G.; Quinche, J.P.; Kalo, A.M.",Helv. Chim. Acta,1964,
+Sm(NO3)3,[10361-83-8],25,,,Sm(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.2811 mol/kg
+Eu(NO3)3,[10138-01-9],33,60.1,4.46,Eu(NO3)3·6H2O,"Mironov, K.E.; Popov, A.P.",Zh. Neorg. Khim.,1971,Invariant point
+Eu(NO3)3,[10138-01-9],60,76.1,9.58,Eu(NO3)3·5H2O/4H2O,"Mironov, K.E.; Popov, A.P.",Zh. Neorg. Khim.,1971,Invariant point
+Gd(NO3)3,[10168-81-7],0,56.34,3.759,Gd(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Gd(NO3)3,[10168-81-7],10,57.89,4.005,Gd(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Gd(NO3)3,[10168-81-7],20,59.60,4.298,Gd(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Gd(NO3)3,[10168-81-7],40,63.44,5.055,Gd(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Gd(NO3)3,[10168-81-7],50,65.23,5.465,Gd(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Gd(NO3)3,[10168-81-7],25,,,Gd(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.3766 mol/kg
+Tb(NO3)3,[10043-27-3],25,,,Tb(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.5395 mol/kg
+Dy(NO3)3,[10143-38-1],0,58.80,4.095,Dy(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Dy(NO3)3,[10143-38-1],10,60.03,4.309,Dy(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Dy(NO3)3,[10143-38-1],20,61.73,4.628,Dy(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Dy(NO3)3,[10143-38-1],40,65.76,5.510,Dy(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Dy(NO3)3,[10143-38-1],50,67.88,6.064,Dy(NO3)3·6H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Dy(NO3)3,[10143-38-1],25,,,Dy(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 4.7382 mol/kg
+Ho(NO3)3,[10168-82-8],25,,,Ho(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 5.0184 mol/kg
+Er(NO3)3,[10168-80-6],0,61.59,4.539,Er(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Er(NO3)3,[10168-80-6],10,63.10,4.841,Er(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Er(NO3)3,[10168-80-6],20,64.91,5.236,Er(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Er(NO3)3,[10168-80-6],40,68.64,6.196,Er(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Er(NO3)3,[10168-80-6],50,70.99,6.927,Er(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Er(NO3)3,[10168-80-6],25,,,Er(NO3)3·5H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 5.4348 mol/kg
+Tm(NO3)3,[14985-19-4],25,,,Tm(NO3)3·6H2O,"Rard, J.A.; Shiers, L.E.; Heiser, D.J.; Spedding, F.H.",J. Chem. Eng. Data,1977,Preferred value: 5.9526 mol/kg
+Yb(NO3)3,[13768-67-7],0,65.76,5.349,Yb(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Yb(NO3)3,[13768-67-7],10,67.51,5.787,Yb(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Yb(NO3)3,[13768-67-7],15,68.28,5.995,Yb(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Yb(NO3)3,[13768-67-7],20,69.50,6.346,Yb(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Yb(NO3)3,[13768-67-7],40,73.91,7.890,Yb(NO3)3·5H2O,Moret R.,Thesis Universite de Lausanne,1963,
+Yb(NO3)3,[13768-67-7],25,,,Yb(NO3)3·6H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 6.6500 mol/kg
+Lu(NO3)3,[10099-67-9],25,,,Lu(NO3)3·5H2O,"Spedding, F.H.; Shiers, L.E.; Rard, J.A.",J. Chem. Eng. Data,1975,Preferred value: 6.8219 mol/kg
