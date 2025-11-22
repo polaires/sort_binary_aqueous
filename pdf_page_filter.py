@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-PDF Page Filter - Extract specific pages from a PDF based on page ranges.
+PDF Page Filter - Extract specific pages from a PDF based on printed page numbers.
 
-This script allows you to filter PDF pages by specifying page ranges
-(e.g., "2-5, 17-20") and creates a new PDF with only those pages.
+This script reads the actual page numbers printed on each page (e.g., in the
+top corners) and filters based on those numbers, not the physical page position.
 """
 
 import sys
@@ -22,6 +22,90 @@ except ImportError:
         sys.exit(1)
 
 
+def extract_page_number_from_text(text):
+    """
+    Extract page number from text (usually from top of page).
+
+    Args:
+        text: Text extracted from the page
+
+    Returns:
+        Page number as integer, or None if not found
+    """
+    if not text:
+        return None
+
+    # Take only first few lines (top of page)
+    lines = text.strip().split('\n')[:5]
+    top_text = '\n'.join(lines)
+
+    # Look for standalone numbers (common page number patterns)
+    # Pattern 1: Just a number on its own line or with minimal text
+    patterns = [
+        r'^\s*(\d+)\s*$',                    # Just a number
+        r'^\s*-?\s*(\d+)\s*-?\s*$',          # Number with dashes (- 5 -)
+        r'^\s*Page\s+(\d+)',                 # "Page 5"
+        r'^\s*P\.?\s*(\d+)',                 # "P. 5" or "P 5"
+        r'(?:^|\s)(\d{1,4})(?:\s|$)',        # Standalone 1-4 digit number
+    ]
+
+    for line in lines:
+        for pattern in patterns:
+            match = re.search(pattern, line, re.IGNORECASE)
+            if match:
+                page_num = int(match.group(1))
+                # Reasonable page number (1-9999)
+                if 1 <= page_num <= 9999:
+                    return page_num
+
+    return None
+
+
+def detect_page_numbers(reader, verbose=True):
+    """
+    Detect printed page numbers on each page of the PDF.
+
+    Args:
+        reader: PdfReader object
+        verbose: Print progress information
+
+    Returns:
+        Dictionary mapping physical page index (0-indexed) to printed page number
+    """
+    page_mapping = {}
+    total_pages = len(reader.pages)
+
+    if verbose:
+        print("\nDetecting page numbers printed on pages...")
+        print("-" * 60)
+
+    for physical_idx in range(total_pages):
+        try:
+            page = reader.pages[physical_idx]
+            text = page.extract_text()
+
+            # Extract page number from top of page
+            printed_num = extract_page_number_from_text(text)
+
+            if printed_num:
+                page_mapping[physical_idx] = printed_num
+                if verbose:
+                    print(f"Physical page {physical_idx + 1:3d} -> Printed page number: {printed_num}")
+            else:
+                if verbose:
+                    print(f"Physical page {physical_idx + 1:3d} -> No page number detected")
+
+        except Exception as e:
+            if verbose:
+                print(f"Physical page {physical_idx + 1:3d} -> Error extracting text: {e}")
+
+    if verbose:
+        print("-" * 60)
+        print(f"Detected page numbers on {len(page_mapping)}/{total_pages} pages\n")
+
+    return page_mapping
+
+
 def parse_page_ranges(range_string):
     """
     Parse page range string like "1-3, 5, 7-10" into a list of page numbers.
@@ -30,7 +114,7 @@ def parse_page_ranges(range_string):
         range_string: String containing page ranges
 
     Returns:
-        Sorted list of unique page numbers (1-indexed)
+        Sorted list of unique page numbers
     """
     pages = set()
 
@@ -67,7 +151,7 @@ def parse_page_ranges(range_string):
     return sorted(list(pages))
 
 
-def filter_pdf_pages(input_path, output_path, page_ranges):
+def filter_pdf_pages(input_path, output_path, page_ranges, use_printed_numbers=True):
     """
     Extract specific pages from a PDF and create a new PDF.
 
@@ -75,45 +159,77 @@ def filter_pdf_pages(input_path, output_path, page_ranges):
         input_path: Path to input PDF file
         output_path: Path to output PDF file
         page_ranges: String of page ranges (e.g., "1-3, 5, 7-10")
+        use_printed_numbers: If True, use printed page numbers; if False, use physical position
     """
     # Parse page ranges
-    pages_to_keep = parse_page_ranges(page_ranges)
+    requested_pages = parse_page_ranges(page_ranges)
 
-    if not pages_to_keep:
+    if not requested_pages:
         print("Error: No valid pages specified")
         return False
 
-    print(f"Pages to extract: {pages_to_keep}")
+    print(f"Requested page numbers: {requested_pages}")
 
     # Read input PDF
     try:
         reader = PdfReader(input_path)
         total_pages = len(reader.pages)
-        print(f"Input PDF has {total_pages} pages")
+        print(f"Input PDF has {total_pages} physical pages\n")
 
-        # Validate page numbers
-        invalid_pages = [p for p in pages_to_keep if p < 1 or p > total_pages]
-        if invalid_pages:
-            print(f"Warning: These pages are out of range and will be skipped: {invalid_pages}")
-            pages_to_keep = [p for p in pages_to_keep if 1 <= p <= total_pages]
+        if use_printed_numbers:
+            # Detect printed page numbers
+            page_mapping = detect_page_numbers(reader, verbose=True)
 
-        if not pages_to_keep:
-            print("Error: No valid pages to extract")
-            return False
+            if not page_mapping:
+                print("\nWarning: No page numbers detected on any pages!")
+                print("Falling back to physical page numbers...")
+                use_printed_numbers = False
 
         # Create output PDF
         writer = PdfWriter()
+        pages_added = []
 
-        # Add selected pages (convert from 1-indexed to 0-indexed)
-        for page_num in pages_to_keep:
-            writer.add_page(reader.pages[page_num - 1])
-            print(f"Added page {page_num}")
+        if use_printed_numbers and page_mapping:
+            # Filter by printed page numbers
+            print("Filtering by printed page numbers...")
+
+            # Create reverse mapping: printed number -> physical indices
+            printed_to_physical = {}
+            for phys_idx, printed_num in page_mapping.items():
+                if printed_num not in printed_to_physical:
+                    printed_to_physical[printed_num] = []
+                printed_to_physical[printed_num].append(phys_idx)
+
+            # Add pages with matching printed numbers
+            for printed_num in requested_pages:
+                if printed_num in printed_to_physical:
+                    for phys_idx in printed_to_physical[printed_num]:
+                        writer.add_page(reader.pages[phys_idx])
+                        pages_added.append(printed_num)
+                        print(f"Added page with printed number {printed_num} (physical page {phys_idx + 1})")
+                else:
+                    print(f"Warning: No page found with printed number {printed_num}")
+        else:
+            # Filter by physical page numbers
+            print("Filtering by physical page numbers...")
+
+            for page_num in requested_pages:
+                if 1 <= page_num <= total_pages:
+                    writer.add_page(reader.pages[page_num - 1])
+                    pages_added.append(page_num)
+                    print(f"Added physical page {page_num}")
+                else:
+                    print(f"Warning: Physical page {page_num} is out of range (1-{total_pages})")
+
+        if not pages_added:
+            print("\nError: No pages were added to output PDF")
+            return False
 
         # Write output file
         with open(output_path, 'wb') as output_file:
             writer.write(output_file)
 
-        print(f"\nSuccess! Created '{output_path}' with {len(pages_to_keep)} pages")
+        print(f"\nSuccess! Created '{output_path}' with {len(pages_added)} pages")
         return True
 
     except FileNotFoundError:
@@ -121,13 +237,15 @@ def filter_pdf_pages(input_path, output_path, page_ranges):
         return False
     except Exception as e:
         print(f"Error processing PDF: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 
 def main():
     """Main function to run the PDF page filter."""
     print("=" * 60)
-    print("PDF Page Filter")
+    print("PDF Page Filter (Smart Page Number Detection)")
     print("=" * 60)
 
     # Get input PDF path
@@ -150,7 +268,8 @@ def main():
     if len(sys.argv) > 2:
         page_ranges = sys.argv[2]
     else:
-        print("\nEnter page ranges to keep (e.g., '2-5, 17-20, 25'):")
+        print("\nEnter page numbers to keep (e.g., '2-5, 17-20, 25'):")
+        print("(This will look for these numbers printed on the pages)")
         page_ranges = input("> ").strip()
 
     if not page_ranges:
@@ -177,7 +296,7 @@ def main():
     print()
 
     # Process PDF
-    success = filter_pdf_pages(input_path, output_path, page_ranges)
+    success = filter_pdf_pages(input_path, output_path, page_ranges, use_printed_numbers=True)
 
     sys.exit(0 if success else 1)
 
