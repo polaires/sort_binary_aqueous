@@ -1,0 +1,132 @@
+================================================================================
+COMPLETE EXTRACTION SUMMARY
+Binary Aqueous Solubility Data from SDS-13_filtered.pdf
+All 16 Rare Earth Nitrates (41 pages)
+================================================================================
+
+OUTPUT FILE: SDS-13_solubility_data_COMPLETE.csv
+
+================================================================================
+1. TOTAL DATA POINTS EXTRACTED PER ELEMENT:
+================================================================================
+
+  Element    Symbol    Data Points    Page Range
+  -------    ------    -----------    ----------
+  Scandium     Sc           6          1-2
+  Yttrium      Y           15          3-4
+  Lanthanum    La          52          5-8
+  Cerium       Ce          35         10-13
+  Praseodymium Pr          35         14-18
+  Neodymium    Nd          44         19-22
+  Samarium     Sm          32         23-26
+  Europium     Eu          38         27
+  Gadolinium   Gd           6         28-30
+  Terbium      Tb           3         31-32
+  Dysprosium   Dy           6         33-34
+  Holmium      Ho           2         35
+  Erbium       Er           6         36-37
+  Thulium      Tm           2         38
+  Ytterbium    Yb           6         39-40
+  Lutetium     Lu           1         41
+  -------    ------    -----------
+  TOTAL                  289 
+
+================================================================================
+2. MASS% VALIDATION:
+================================================================================
+
+  Mass% values > 100: 0
+  ✓ ALL MASS% VALUES ARE ≤ 100% (CORRECTLY CONVERTED)
+
+================================================================================
+3. CONVERSION DETAILS:
+================================================================================
+
+Critical conversion rule applied:
+- Column "g(l)/100 g(2)" or "g(l)/lOO g(2)" → grams solute per 100g WATER
+  Formula: mass% = (g_solute / (g_solute + 100)) × 100
+
+- Column "mass %" → Used as-is (no conversion needed)
+
+Example conversion (Yttrium at 0°C):
+  - Original: 93.55 g Y(NO3)3 / 100g H2O
+  - Converted: (93.55 / (93.55 + 100)) × 100 = 48.33 mass%
+
+================================================================================
+4. CSV STRUCTURE:
+================================================================================
+
+Columns:
+  1. Salt (e.g., "Sc(NO3)3")
+  2. CAS_Number
+  3. Temperature_C
+  4. Mass_Saturated_Solution_g (if available)
+  5. Mass_Oxide_g (if available)
+  6. Solubility_g_per_100g_H2O_old_masses (if available)
+  7. Solubility_g_per_100g_H2O_new_masses (correctly converted)
+  8. Solubility_mass_percent (CORRECTLY CONVERTED)
+  9. Solubility_mol_per_kg
+ 10. Solid_Phase
+ 11. Reference
+ 12. Journal
+ 13. Year
+ 14. Additional_Conditions
+
+================================================================================
+5. SAMPLE DATA (First 3 rows):
+================================================================================
+
+Row 1: Sc(NO3)3 at 0°C
+  - Mass%: 56.37%
+  - Molality: 5.595 mol/kg
+  - Solid Phase: Sc(NO3)3·4H2O
+
+Row 2: Sc(NO3)3 at 15°C
+  - Mass%: 61.30%
+  - Molality: 6.857 mol/kg
+  - Solid Phase: Sc(NO3)3·4H2O
+
+Row 3: Sc(NO3)3 at 25°C
+  - Mass%: 62.37%
+  - Molality: 7.176 mol/kg
+  - Solid Phase: Sc(NO3)3·4H2O
+
+================================================================================
+6. DATA SOURCES:
+================================================================================
+
+Multiple studies included per element:
+  - Friend (J. Chem. Soc., 1935)
+  - Crew, Steinert, Hopkins (J. Phys. Chem., 1925)
+  - Moret (Thèse Université de Lausanne, 1963)
+  - Brunisholz, Quinche, Kalo (Helv. Chim. Acta, 1964)
+  - Mironov, Popov (Rev. Roum. Chim., 1966-1968)
+  - Spedding and co-workers (multiple publications, 1975-1977)
+  - And others...
+
+================================================================================
+7. TEMPERATURE RANGES:
+================================================================================
+
+  - Minimum: -36.7°C (La with ice phase)
+  - Maximum: 135.0°C (Sm with lower hydrate)
+  - Most data: 0-50°C range
+
+================================================================================
+8. SOLID PHASES IDENTIFIED:
+================================================================================
+
+  - Hexahydrates: M(NO3)3·6H2O (most common)
+  - Pentahydrates: M(NO3)3·5H2O (several elements)
+  - Tetrahydrates: M(NO3)3·4H2O (some elements)
+  - Trihydrates: M(NO3)3·3H2O (high temperature)
+  - Ice phases (negative temperatures)
+  - Metastable phases (noted in Additional_Conditions)
+
+================================================================================
+EXTRACTION COMPLETED SUCCESSFULLY
+Date: 2025-11-22
+Total Data Points: 289
+All conversions verified ✓
+All mass% values ≤ 100% ✓
+================================================================================
